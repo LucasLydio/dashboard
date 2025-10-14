@@ -1,0 +1,93 @@
+
+    :root{
+      --primary-color: #006c70;
+      --secondary-color: #f4b313;
+      --bg-color: #f4f7f6;
+      --text-muted: #6c757d;
+      --card-radius: 12px;
+    }
+
+    body{
+      background: var(--bg-color);
+      color: #111;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      padding-bottom: 4rem;
+    }
+
+    /* Topbar */
+    .topbar{
+      background: white;
+      border-bottom: 1px solid #e9ecef;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .brand {
+      color: var(--primary-color);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    /* Cards */
+    .stat-card{
+        /* min-width: 270px; */
+      border: none;
+      border-radius: var(--card-radius);
+      box-shadow: 0 6px 18px rgba(6,22,31,0.04);
+    }
+    .stat-card .stat-value{
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b2a2a;
+    }
+    .stat-card .stat-label{
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .stat-badge{
+      background: rgba(0,0,0,0.03);
+      color: var(--primary-color);
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Section titles */
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    .muted-desc{
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Sessions list */
+    .session-item{
+      border-radius: 10px;
+      background: #fff;
+      padding: .75rem;
+      border: 1px solid #eef2f2;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+
+    /* Table */
+    .table-card{
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(6,22,31,0.04);
+    }
+    .small-muted{
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 767px){
+      .stat-card .stat-value { font-size: 1.25rem; }
+    }
