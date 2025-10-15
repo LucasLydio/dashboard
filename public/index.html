@@ -7,6 +7,7 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,8 +21,8 @@
       </div>
 
       <div class="d-flex align-items-center gap-3">
-        <span class="small-muted">Usuário: <strong>Lucas</strong></span>
-        <button class="btn btn-outline-secondary btn-sm">Perfil</button>
+        <!-- <span class="small-muted">Usuário: <strong>Lucas</strong></span>
+        <button class="btn btn-outline-secondary btn-sm">Perfil</button> -->
       </div>
     </div>
   </header>
@@ -102,13 +103,13 @@
           <div class="card stat-card p-3">
             <div class="d-flex align-items-center justify-content-between">
               <div>
-                <div class="stat-label">Tempo médio de resposta</div>
-                <div class="stat-value" id="avg-response-time">-- ms</div>
-                <div class="small-muted">Média das latências de mensagem</div>
+                <div class="stat-label">Redes de Apoio</div>
+                <div class="stat-value" id="social-network">--</div>
+                <div class="small-muted">Total das redes de apoio</div>
               </div>
               <div class="text-end">
                 <div style="width:48px;height:48px;border-radius:10px;background:#fff3cd; display:flex; align-items:center; justify-content:center; color:#8a6d00; font-weight:700;">
-                  ⏱
+                  <i class="bi bi-people-fill"></i>
                 </div>
               </div>
             </div>
@@ -258,6 +259,8 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+    <script src="js/setUser.js"></script>
+    <script src="js/setSocial.js"></script>
 
 </body>
 </html>
