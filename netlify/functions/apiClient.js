@@ -68,8 +68,17 @@ async function getStateCounts() {
     const state = addr.state || 'Indefinido';
     stateCounts[state] = (stateCounts[state] || 0) + 1;
   });
-  
+
   return stateCounts;
+}
+
+async function getTherapist() {
+  const { data, error } = await supabase
+    .from('users')
+    .select('name, surname, email')
+    .eq('profile_id', 2);
+  if (error) throw error;
+  return data;
 }
 
 
@@ -81,5 +90,6 @@ module.exports = {
   getUsersCountByProfile,
   getMessagesCount,
   getAddresses,
-  getStateCounts
+  getStateCounts,
+  getTherapist
 };

@@ -45,7 +45,7 @@
 
   <!-- Topbar -->
   <header class="topbar py-3 mb-4">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-end justify-content-between">
       <div>
           <i class="bi bi-list fs-4" id="open-side-menu"></i>
       </div>
@@ -157,6 +157,7 @@
       <div class="d-flex align-items-center justify-content-between mb-3">
         <div >
           <h3 class="h6 section-title">Dados de Usuários</h3>
+          <div class="muted-desc mb-2">Gráficos e Informações dos Usuários</div>
         </div>
       </div>
       <div class="chart-container d-flex gap-4">
@@ -255,61 +256,17 @@
     </section>
 
     <!-- ========================
-          SEÇÃO 3 — MENSAGENS / DETALHES
+          SEÇÃO 3 — Terapeutas / DETALHES
          ======================== -->
     <section class="mb-5">
       <div class="d-flex align-items-center justify-content-between mb-3">
         <div>
-          <h3 class="h6 section-title">Mensagens</h3>
-          <div class="muted-desc">Últimas mensagens enviadas e tempos de resposta</div>
+          <h3 class="h6 section-title">Terapeutas</h3>
+          <div class="muted-desc">Terapeutas ativos no sistema mindway</div>
         </div>
-        <div class="small-muted">Últimas 50</div>
       </div>
-
-      <div class="card table-card">
-        <div class="p-3 bg-white">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="small-muted">Filtro: <strong>Hoje</strong></div>
-            <div>
-              <!-- <button class="btn btn-sm btn-outline-primary">Exportar CSV</button> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="table-responsive p-4">
-          <table class="table mb-0">
-            <thead class="table-light small-muted">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Usuário</th>
-                <th scope="col">Mensagem</th>
-                <th scope="col">Status</th>
-                <th scope="col">Tempo (ms)</th>
-                <th scope="col">Hora</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- linhas de exemplo -->
-              <tr>
-                <td>1</td>
-                <td>joao.p</td>
-                <td>Pedido de agendamento</td>
-                <td><span class="badge bg-success">Sucesso</span></td>
-                <td>124</td>
-                <td>10:25:34</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>maria.s</td>
-                <td>Confirmação</td>
-                <td><span class="badge bg-success">Sucesso</span></td>
-                <td>98</td>
-                <td>10:24:12</td>
-              </tr>
-              <!-- placeholder para população dinâmica -->
-            </tbody>
-          </table>
-        </div>
+      <div class="row" id="therapists-list">
+        <!-- Os cards serão inseridos aqui pelo JS -->
       </div>
     </section>
 
@@ -333,6 +290,7 @@
     <script src="js/setChart.js"></script>
     <script src="js/setMessages.js"></script>
     <script src="js/setChartAddress.js"></script>
+    <script src="js/setTherapist.js"></script>
 
 </body>
 </html>
