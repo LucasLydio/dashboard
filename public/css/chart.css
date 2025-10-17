@@ -1,0 +1,18 @@
+.chart-container {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card-chart {
+    max-width: fit-content;
+}
+
+.chart {
+    width: 300px;
+    height: auto;
+
+    #users-profile-chart {
+        display: flex;
+        flex-direction: row;
+    }
+}

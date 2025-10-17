@@ -9,15 +9,49 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
  <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/menu.css">
+ <link rel="stylesheet" href="css/chart.css">
 </head>
 <body>
+
+
+<div class="side-menu d-flex flex-column align-items-start">
+  <button class="btn exit" id="close-side-menu"><i class="bi bi-x"></i></button>
+  <div class="w-100 side-menu-container">
+    <!-- Topo: Logo/Nome -->
+    <div class="w-100 d-flex flex-column align-items-center justify-content-center my-4 gap-0">
+      <h6 class="d-flex">MindWay Dashboard</h6>
+      <hr class="w-75">
+    </div>
+    <!-- Navegação -->
+    <ul class="nav flex-column w-100 px-2">
+      <li class="nav-item"><a class="nav-link active" href="#overview"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="#data-users"><i class="bi bi-people"></i> Usuários</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-chat-dots"></i> Mensagens</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+      <hr class="my-2">
+      <!-- <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-circle"></i> Perfil</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i> Sair</a></li> -->
+    </ul>
+    <!-- Footer -->
+    <div class="position-relative w-100 mt-auto">
+      <div class="container text-center small-muted bottom-0 position-absolute mb-2">
+        © <span id="year"></span> MindWay <br> Dashboard estrutural
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Topbar -->
   <header class="topbar py-3 mb-4">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center gap-3">
-        <div class="brand fs-4">MindWay Dashboard</div>
-        <div class="small-muted">Visão geral • Monitoramento</div>
+      <div>
+          <i class="bi bi-list fs-4" id="open-side-menu"></i>
+      </div>
+      <div class="title d-flex justify-content-center gap-3">
+        <h6 class="brand fs-6">MindWay Dashboard</h6>
+        <h6 class="small-muted">Visão geral • Monitoramento</h6>
       </div>
 
       <div class="d-flex align-items-center gap-3">
@@ -26,15 +60,15 @@
       </div>
     </div>
   </header>
-
-  <main class="container">
+  <div class="position-absolute top-0" id="overview"></div>
+  <main class="container" id="overview">
 
     <!-- ========================
           SEÇÃO 1 — OVERVIEW (CARDS)
          ======================== -->
-    <section class="mb-5">
+    <section class="mb-5" >
       <div class="d-flex align-items-center justify-content-between mb-3">
-        <div>
+        <div >
           <h2 class="h5 section-title">Overview</h2>
           <div class="muted-desc">Resumo rápido das métricas principais</div>
         </div>
@@ -103,15 +137,48 @@
           <div class="card stat-card p-3">
             <div class="d-flex align-items-center justify-content-between">
               <div>
+                <div ></div>
                 <div class="stat-label">Redes de Apoio</div>
                 <div class="stat-value" id="social-network">--</div>
-                <div class="small-muted">Total das redes de apoio</div>
+                <div class="small-muted" id="data-users">Total de redes de apoio</div>
               </div>
               <div class="text-end">
                 <div style="width:48px;height:48px;border-radius:10px;background:#fff3cd; display:flex; align-items:center; justify-content:center; color:#8a6d00; font-weight:700;">
                   <i class="bi bi-people-fill"></i>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section >
+
+    <section class="mb-5">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div >
+          <h3 class="h6 section-title">Dados de Usuários</h3>
+        </div>
+      </div>
+      <div class="chart-container d-flex gap-4">
+        <div class="">
+          <div class="muted-desc mb-2">Perfil dos Usuários Ativos</div>
+          <div class="card card-chart p-3">
+            <div class="chart d-flex flex-column gap-2">
+              <div id="no-sessions" class="d-none text-center small-muted py-3">
+                Nenhum usuário registrado
+              </div>
+              <canvas id="users-profile-chart" ></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="muted-desc mb-2">Usuários por Estado</div>
+          <div class="card card-chart p-3">
+            <div class="chart d-flex flex-column gap-2">
+              <div id="no-sessions" class="d-none text-center small-muted py-3">
+                Nenhum usuário registrado
+              </div>
+              <canvas id="states-chart" height="300"></canvas>
             </div>
           </div>
         </div>
@@ -204,7 +271,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="small-muted">Filtro: <strong>Hoje</strong></div>
             <div>
-              <button class="btn btn-sm btn-outline-primary">Exportar CSV</button>
+              <!-- <button class="btn btn-sm btn-outline-primary">Exportar CSV</button> -->
             </div>
           </div>
         </div>
@@ -259,8 +326,13 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/setUser.js"></script>
     <script src="js/setSocial.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/setChart.js"></script>
+    <script src="js/setMessages.js"></script>
+    <script src="js/setChartAddress.js"></script>
 
 </body>
 </html>

@@ -18,6 +18,23 @@ async function getUsersCount() {
   return count;
 }
 
+async function getMessagesCount() {
+  const { count, error } = await supabase
+    .from('messages')
+    .select('*', { count: 'exact', head: true });
+  if (error) throw error;
+  return count;
+}
+
+async function getUsersCountByProfile(profile_id) {
+  const { count, error } = await supabase
+    .from('users')
+    .select('*', { count: 'exact', head: true })
+    .eq('profile_id', profile_id);
+  if (error) throw error;
+  return count;
+}
+
 async function getActiveSessions() {
   const { data, error } = await supabase
     .from('sessions')
@@ -35,9 +52,34 @@ async function getSocialNetwork() {
   return count;
 }
 
+async function getAddresses() {
+  const { data, error } = await supabase
+    .from('addresses')
+    .select('city, state');
+  if (error) throw error;
+  return data; // [{ city: 'Goiânia', state: 'Goiás' }, ...]
+}
+
+async function getStateCounts() {
+  const addresses = await getAddresses();
+  const stateCounts = {};
+
+  addresses.forEach(addr => {
+    const state = addr.state || 'Indefinido';
+    stateCounts[state] = (stateCounts[state] || 0) + 1;
+  });
+  
+  return stateCounts;
+}
+
+
 module.exports = {
   supabase,
   getUsersCount,
   getActiveSessions,
-  getSocialNetwork
+  getSocialNetwork,
+  getUsersCountByProfile,
+  getMessagesCount,
+  getAddresses,
+  getStateCounts
 };

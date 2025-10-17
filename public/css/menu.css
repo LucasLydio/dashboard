@@ -1,0 +1,114 @@
+@import url(./style.css);
+
+/* --primary-color: #006c70;
+--secondary-color: #f4b313;
+--bg-color: #f4f7f6;
+--bg-white: #fff;
+--text-muted: #6c757d;
+--card-radius: 12px; */
+/* .move-side {
+    transform: translateX(10px);
+} */
+
+.side-menu {
+    transform: translateX(-250px);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    position: fixed;
+    top: 0;
+    width: 250px;
+    min-height: 100vh;
+    background-color: var(--bg-white);
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.3);
+    z-index: 1000;
+
+    .exit {
+        position: absolute;
+        top: .2rem;
+        right: .1rem;
+        font-size: 1.4rem;
+        padding: 0 .2rem;
+        z-index: 2;
+    }
+
+    .side-menu-container {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h6 {
+            color: var(--primary-color);
+            font-weight: 550;
+        }
+        hr {
+            color: var(--text-muted);
+            opacity: 0.2;
+        }
+
+    }
+
+}
+
+.side-menu.show {
+    transform: translateX(0);       
+}
+
+.side-menu .nav {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.side-menu .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: 1.05rem;
+    padding: 0.65rem 1.25rem 0.65rem 1.5rem;
+    color: var(--primary-color);
+    border-radius: 6px;
+    background: transparent;
+    font-weight: 500;
+    transition: background .18s, color .18s, font-weight .15s;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    @media (max-width: 700px) {
+        font-size: .8rem;
+    }
+}
+
+.side-menu .nav-link i {
+    font-size: 1.15rem;
+    opacity: 0.82;
+}
+
+.side-menu .nav-link:hover,
+.side-menu .nav-link:focus {
+    background: var(--bg-color);
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.side-menu .nav-link.active {
+    background: linear-gradient(90deg, var(--primary-color) 85%, var(--secondary-color) 100%);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,108,112,.06);
+}
+
+.side-menu .nav-link.active i {
+    color: #fff;
+    opacity: 1;
+}
+
+.side-menu .nav-link:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 0;
+}
+
+.side-menu hr {
+    color: var(--text-muted);
+    opacity: 0.14;
+    margin: .75rem 0;
+}
