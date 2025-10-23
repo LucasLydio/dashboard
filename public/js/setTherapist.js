@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', async () => {
               </div>
               <h5 class="card-title mb-1">${t.name} ${t.surname || ''}</h5>
               <div class="small muted-desc mb-2">${t.email ? `E-mail: ${t.email}` : ''}</div>
+              <small class="text-muted" >Horas ativas no sistema(média): 5h</small>
               <!-- Outros campos se quiser -->
             </div>
           </div>
