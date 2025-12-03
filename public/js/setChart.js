@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       data: {
         labels: ['Clientes', 'Terapeutas'],
         datasets: [{
-          data: [usuariosProfile1, usuariosProfile2],
+          data: [usuariosProfile1, usuariosProfile3],
           backgroundColor: [
             '#006c70', // cor do perfil 1
             '#f4b313', // cor do perfil 2
