@@ -7,9 +7,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     const data = await res.json();
 
   const usuariosProfile1 = data.profile_1; 
-  const usuariosProfile2 = data.profile_2;  
+  const usuariosProfile3 = data.profile_3;  
 
-  if (usuariosProfile1 === 0 && usuariosProfile2 === 0) {
+  if (usuariosProfile1 === 0 && usuariosProfile3 === 0) {
     document.getElementById('no-sessions').classList.remove('d-none');
     document.getElementById('users-profile-chart').style.display = 'none';
   } else {
