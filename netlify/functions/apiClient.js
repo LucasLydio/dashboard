@@ -76,7 +76,7 @@ async function getTherapist() {
   const { data, error } = await supabase
     .from('users')
     .select('name, surname, email')
-    .eq('profile_id', 2);
+    .eq('profile_id', 3);
   if (error) throw error;
   return data;
 }
